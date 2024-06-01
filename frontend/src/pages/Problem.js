@@ -3,7 +3,7 @@
 const Problem = () => {
     return (
         <div className="problems">
-            <h1>these are the problems</h1>
+            <h1>these are my problems</h1>
         </div>
     )
 }

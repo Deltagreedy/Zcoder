@@ -20,7 +20,7 @@ const Navbar = () => {
 
             <nav>
                 {user ? (<div>
-                    <span style={{marginRight: '30px', fontSize: '20px'}}>{user.email}</span>
+                    <span style={{marginRight: '30px', fontSize: '20px'}}>{user.username}</span>
                     <button style={{marginRight: '30px', fontSize: '20px'}} onClick={handleClick}>log out</button>
                 </div>) : (<div>
                     <Link to="/login" style={{marginRight: '30px', fontSize: '20px'}}>login</Link>

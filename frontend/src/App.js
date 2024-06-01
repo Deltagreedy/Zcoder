@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 import Navbar from './components/Navbar'
 import Menubar from './components/Menubar'
@@ -12,6 +13,11 @@ import { useAuthContext } from './hooks/useAuthContext'
 function App() {
   const { user } = useAuthContext()
 
+  useEffect(() => {
+    document.title = "Z-Coder"
+ }, []);
+ 
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +26,7 @@ function App() {
         <Routes>
           <Route
             path='/'
-            element={user ? <Home /> : <Navigate to="/login" />}
+            element={<Home />}
           />
           <Route
             path='/login'
@@ -32,7 +38,7 @@ function App() {
           />
           <Route
             path='/problem'
-            element={<Problem />}
+            element={user ? <Problem /> : <Navigate to="/login" />}
           />
 
         </Routes>

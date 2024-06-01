@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useSignup } from '../hooks/useSignup'
 
 const Signup = () => {
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const { signup, isLoading, error } = useSignup()
@@ -9,13 +10,21 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await signup(email, password)
+        await signup(username, email, password)
     }
 
     return (
         <form className="login" onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
             <p>Please fill the form to create an account.</p>
+            <label>Username:</label>
+            <br />
+            <input
+                type="text"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+            />
+            <br />
             <label>Email address:</label>
             <br />
             <input
@@ -36,6 +45,7 @@ const Signup = () => {
             <br />
             <br />
             {error && <div className="error">{error}</div>}
+            <br />
         </form>
     )
 }
