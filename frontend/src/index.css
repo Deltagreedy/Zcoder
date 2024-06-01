@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
 
-body{
+body {
   margin: 0px;
   padding: 0px;
   min-width: 700px;
-  background-color: tomato;
+  background-color: #f3f3f3;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -19,7 +20,7 @@ body{
   height: 100px;
   max-width: 100%;
   font-family: 'Hedvig Letters Serif', serif;
-  background-color: rgb(255, 197, 197);
+  /* background-color: rgb(255, 197, 197);   */
   text-align: center;
   position: relative;
 }
@@ -35,7 +36,7 @@ body{
   padding: 5px 20px;
 }
 
-.navbar-container > nav{
+.navbar-container>nav {
   /* display: block; */
   position: absolute;
   top: 40px;
@@ -45,7 +46,7 @@ body{
 }
 
 
-.navbar-container button{
+.navbar-container button {
   border: none;
   color: inherit;
   background-color: inherit;
@@ -68,7 +69,7 @@ body{
   overflow: hidden;
 }
 
-.li-menu .link-menu{
+.li-menu .link-menu {
   display: block;
   text-align: center;
   text-decoration: none;
@@ -87,8 +88,8 @@ body{
 
 /* login page */
 .login {
-  background-color: blueviolet;
-  color: white;
+  /* background-color: blueviolet; */
+  color: black;
   min-height: 500px;
   width: 60%;
   min-width: 600px;
@@ -97,22 +98,25 @@ body{
   padding-left: 40px;
 }
 
-.login h1{
+.login h1 {
   font-size: 50px;
 }
 
-.login label{
+.login label {
   font-size: 40px;
 }
 
-.login input[type=text], input[type=email], input[type=password] {
+.login input[type=text],
+input[type=email],
+input[type=password] {
   width: 95%;
   display: block;
   padding: 10px;
 }
 
 .login button {
-  background-color: #04AA6D; /* Green */
+  background-color: #04AA6D;
+  /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -121,4 +125,113 @@ body{
   display: inline-block;
   font-size: 16px;
 
+}
+
+
+/* error */
+input.error, textarea.error {
+  border: 1px solid red;
+}
+
+
+/* problems */
+.problems {
+  width: 70%;
+  margin: 0px auto 50px auto;
+  padding: 20px 30px;
+  font-family: "Merriweather", serif;
+  /* background-color: #04AA6D; */
+}
+
+.addd {
+  /* background-color: #04AA6D; */
+  text-decoration: none;
+  color: inherit;
+  font-size: 30px;
+  border: 1px solid black;
+  padding: 10px 20px;
+  width: 98%;
+  font-family: inherit;
+}
+
+.addd:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.problem {
+  border: 2px solid pink;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+
+.add-prob {
+  width: 70%;
+  margin: 0px auto 50px auto;
+  padding: 20px 30px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-family: "Merriweather", serif;
+
+}
+
+.add-prob label {
+  font-size: 30px;
+}
+
+.add-prob input {
+  width: 98%;
+  min-height: 40px;
+}
+
+
+.add-prob textarea {
+  width: 98%;
+  min-height: 200px;
+}
+
+.add-prob button {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-family: inherit;
+  background-color: inherit;
+  border: 1px solid black;
+  min-height: 30px;
+  width: 98%;
+}
+
+.add-prob button:hover {
+  background-color: tomato;
+  color: white;
+}
+
+
+/* accordion */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: tomato;
+  color: white ;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }

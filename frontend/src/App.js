@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Home from './pages/Home'
 import Problem from './pages/Problem'
+import NewProb from './pages/NewProb'
 
 import { useAuthContext } from './hooks/useAuthContext'
 
@@ -30,7 +31,7 @@ function App() {
           />
           <Route
             path='/login'
-            element={!user ? <Login /> : <Navigate to="/" />}
+            element={!user ? <Login /> : <Navigate to="/problem" />}
           />
           <Route
             path='/signup'
@@ -39,6 +40,10 @@ function App() {
           <Route
             path='/problem'
             element={user ? <Problem /> : <Navigate to="/login" />}
+          />
+          <Route
+            path='/problem/new'
+            element={user ? <NewProb /> : <Navigate to="/login" />}
           />
 
         </Routes>

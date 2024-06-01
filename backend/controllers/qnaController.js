@@ -27,22 +27,23 @@ const getAQna = async (req, res) => {
 
 // create a qna
 const createQna = async (req, res) => {
-    const { question, answer } = req.body
+    const { title, rating, question, answer } = req.body
 
     let emptyFields = []
 
-    if (!question) emptyFields.push('question')
-    if (!answer) emptyFields.push('answer')
+    if (!title) { emptyFields.push('title') }
+    if (!question) { emptyFields.push('question') }
+    if (!answer) { emptyFields.push('answer') }
 
-    if (emptyFields.length > 0)
-        return res.status(400).json({ error: 'Please provide the following: ', emptyFields })
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'yo provide all the shit', emptyFields })
+    }
 
     try {
         const user_id = req.user._id
-        const qna = await Qna.create({ question, answer, user_id })
+        const qna = await Qna.create({ title, rating, question, answer, user_id })
         res.status(200).json(qna)
     }
-
     catch (error) {
         res.status(400).json({ error: error.message })
     }

@@ -15,6 +15,13 @@ const commentSchema = new Schema({
 module.exports = mongoose.model('Comment', commentSchema)
 
 const qnaSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    rating:{
+        type: Number
+    },
     question: {
         type: String,
         required: true
