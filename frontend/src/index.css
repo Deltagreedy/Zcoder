@@ -135,7 +135,7 @@ input.error, textarea.error {
 
 
 /* problems */
-.problems {
+.problems, .home {
   width: 70%;
   margin: 0px auto 50px auto;
   padding: 20px 30px;
@@ -163,7 +163,7 @@ input.error, textarea.error {
   border: 2px solid pink;
   padding: 20px 30px;
   margin-bottom: 20px;
-  position: relative;
+  overflow: auto;
 }
 
 
@@ -181,7 +181,7 @@ input.error, textarea.error {
   font-size: 30px;
 }
 
-.add-prob input {
+.add-prob input[type=text], input[type=number] {
   width: 98%;
   min-height: 40px;
 }

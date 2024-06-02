@@ -1,8 +1,9 @@
 const express = require('express')
 const {
+    getQueries,
     createQna,
     getQnas,
-    getAQna
+    deleteQna
 } = require('../controllers/qnaController')
 const {
     getComments,
@@ -13,16 +14,20 @@ const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
+router.get('/public', getQueries)
+
 router.use(requireAuth)     // yo
 
-router.get('/', getQnas)
+router.get('/problemset', getQnas)
 
-router.get('/:id', getAQna)
+// router.get('/problemset/:id', getAQna)
 
-router.post('/', createQna)
+router.post('/problemset', createQna)
 
 router.get('/:id/comments', getComments)
 
 router.post('/:id/comments', addAComment)
+
+router.delete('/:id', deleteQna)
 
 module.exports = router;

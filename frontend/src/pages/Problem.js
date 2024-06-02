@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useQnaContext } from '../hooks/useQnaContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -9,9 +9,11 @@ const Problem = () => {
     const { qnas, dispatch } = useQnaContext()
     const { user } = useAuthContext()
 
+    const [isQna, setIsQna] = useState(true)
+
     useEffect(() => {
         const fetchQnas = async () => {
-            const response = await fetch('/api/qna', {
+            const response = await fetch('/api/qna/problemset', {
                 headers: { 'Authorization': `Bearer ${user.token}` },
             })
             const json = await response.json()
@@ -20,21 +22,33 @@ const Problem = () => {
             }
         }
 
+
+
         if (user) {
             fetchQnas()
         }
     }, [dispatch, user])
 
+
+    useEffect(() => {
+        if(qnas?.length === 0){
+            setIsQna(false)
+        }
+    }, [qnas])
+
+
     return (
         <div className="problems">
             <Link to="/problem/new" style={{ textDecoration: 'none', color: 'inherit' }}> <button className='addd'>add a problem</button></Link>
             <h1>these are my problems:</h1>
-            <div>
-                {qnas ? qnas.map(qna => (
-                    <QnaDetails qna={qna} key={qna._id} />
-                )) : (
-                    <p>yo nothing is added at</p>
-                )}
+            <div>   
+                {
+                    isQna ? qnas?.map(qna => (
+                        <QnaDetails qna={qna} key={qna._id} />
+                    )) : (
+                        <p>yo no problimo is added here yet.</p>
+                    )
+                }
             </div>
         </div>
     )

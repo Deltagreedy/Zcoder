@@ -12,8 +12,10 @@ const NewProb = () => {
     const [rating, setRating] = useState('')
     const [question, setQuestion] = useState('')
     const [answer, setAnswer] = useState('')
+    const [ispublic, setIsPublic] = useState(false)
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
+
 
     const navigate = useNavigate()
 
@@ -25,9 +27,9 @@ const NewProb = () => {
             return
         }
 
-        const qna = { title, rating, question, answer }
+        const qna = { title, rating, question, answer, ispublic }
 
-        const response = await fetch('/api/qna', {
+        const response = await fetch('/api/qna/problemset', {
             method: 'POST',
             body: JSON.stringify(qna),
             headers: {
@@ -47,11 +49,14 @@ const NewProb = () => {
             setRating('')
             setQuestion('')
             setAnswer('')
+            setIsPublic(false)
             setError(null)
             setEmptyFields([])
             dispatch({ type: 'CREATE_QNA', payload: json })
             navigate('/problem')
         }
+
+
     }
 
     return (
@@ -91,14 +96,23 @@ const NewProb = () => {
                 <br />
                 <br />
 
-                <label>Answer*:</label>
+                <label>Answer:</label>
                 <br />
-                <textarea 
+                <textarea
                     name="answer"
                     value={answer}
-                    onChange={(e)=>setAnswer(e.target.value)}
-                    className={emptyFields.includes('answer') ? 'error' : ''}
+                    onChange={(e) => setAnswer(e.target.value)}
                 />
+                <br />
+                <br />
+
+                <input
+                    type="checkbox"
+                    value={ispublic}
+                    checked={ispublic}
+                    onChange={() => { setIsPublic(!ispublic) }}
+                />
+                <label style={{ fontSize: '16px' }}>set this question as public</label>
                 <br />
                 <br />
 
@@ -106,7 +120,7 @@ const NewProb = () => {
                 <br />
                 {error && <div className="error">{error}</div>}
             </form>
-                <p>* means required.</p>
+            <p>* means required.</p>
         </div>
     )
 }

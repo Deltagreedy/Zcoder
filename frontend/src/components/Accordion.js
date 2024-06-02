@@ -18,7 +18,7 @@ export const Accordion = ({ title, children }) => {
                 className="panel"
                 style={{ maxHeight: isActive ? `${panelRef.current.scrollHeight}px` : '0px' }}
             >
-                <p>{children}</p>
+                {children}
             </div>
         </div>
     );

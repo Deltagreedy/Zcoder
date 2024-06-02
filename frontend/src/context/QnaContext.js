@@ -12,6 +12,12 @@ export const qnaReducer = (state, action) => {
             return {
                 qnas: [action.payload, ...state.qnas]
             }
+        case 'DELETE_QNA':
+            return {
+                qnas: state.qnas.filter((q) =>
+                    q._id !== action.payload._id
+                )
+            }
         default:
             return state
     }

@@ -27,8 +27,14 @@ const qnaSchema = new Schema({
         required: true
     },
     answer: {
-        type: String,
-        required: true
+        type: String
+    },
+    ispublic: {
+        type: Boolean,
+        default: false
+    },
+    username: {
+        type: String
     },
     user_id: {
         type: String,

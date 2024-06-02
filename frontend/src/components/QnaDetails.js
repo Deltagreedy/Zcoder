@@ -1,21 +1,60 @@
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-import {Accordion} from './Accordion'
+import { Accordion } from './Accordion'
+import { useQnaContext } from '../hooks/useQnaContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const QnaDetails = ({ qna }) => {
+    const { dispatch } = useQnaContext()
+    const { user } = useAuthContext()
+
+    const handleClick = async () => {
+        if (!user) return
+        const response = await fetch(`/api/qna/${qna._id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
+
+        if (response.ok) {
+            dispatch({ type: 'DELETE_QNA', payload: json })
+        }
+    }
 
     return (
         <div className='problem'>
-            <p style={{ float: 'right' }}>{formatDistanceToNow(new Date(qna.createdAt), { addSuffix: true })}</p>
-            <p style={{ fontSize: '30px' }}><b><u>{qna.title}</u></b> \ rating: {qna.rating ? qna.rating : 'n/a'}</p>
-            {/* <p><b><u>Question:</u></b> {qna.question}</p>
-            <p><b><u>Solution:</u></b> {qna.answer}</p> */}
-            <Accordion title="Question">
-                <p>{qna.question}</p>
-            </Accordion>
-            <Accordion title="Answer:">
-                <p>{qna.answer}</p>
-            </Accordion>
-        </div>
+            {
+                qna.ispublic ? (
+                    <div>
+                        <p style={{ float: 'right' }}>{formatDistanceToNow(new Date(qna.createdAt), { addSuffix: true })}</p>
+                        <p>question asked by: <u>{qna.username}</u></p>
+                        <hr />
+                        <p style={{ fontSize: '30px' }}>Title: <b><u>{qna.title}</u></b></p>
+                        <pre style={{ fontFamily: 'inherit', overflow: 'auto' }}>Question:      {qna.question}</pre>
+                        {/* <button style={{ float: 'right' }} onClick={handleClick}>delete</button> */}
+                    </div>
+                ) : (<p></p>)
+            }
+
+            {
+                !qna.ispublic ? (
+                    <div>
+                        <button style={{ float: 'right' }} onClick={handleClick}>delete</button>
+                        <p style={{ fontSize: '30px' }}><b><u>{qna.title}</u></b> \ rating: {qna.rating ? qna.rating : 'n/a'}</p>
+                        <Accordion title="Question">
+                            <pre style={{ fontFamily: 'inherit', overflow: 'auto' }}>{qna.question}</pre>
+                        </Accordion>
+                        <Accordion title="Answer:">
+                            <pre style={{ fontFamily: 'inherit', overflow: 'auto' }}>{qna.answer}</pre>
+                        </Accordion>
+                        <p style={{ float: 'right' }}>{formatDistanceToNow(new Date(qna.createdAt), { addSuffix: true })}</p>
+                    </div>
+                ) : (<p></p>)
+            }
+
+
+        </div >
     )
 }
 
