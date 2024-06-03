@@ -4,6 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
 const qnaRoutes = require('./routes/qna')
+const commentsRoute = require('./routes/comments')
 
 // express app
 const app = express();
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 })
 
 // routes
+app.use('/api/comments', commentsRoute);
 app.use('/api/qna', qnaRoutes);
 app.use('/api/user', userRoutes);
 

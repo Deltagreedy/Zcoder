@@ -4,7 +4,6 @@ import QnaDetails from "../components/QnaDetails"
 
 const Home = () => {
     const [qnas, setQnas] = useState()
-    const [isQna, setIsQna] = useState(true)
 
 
     useEffect(() => {
@@ -19,17 +18,11 @@ const Home = () => {
         fetchQueries()
     }, [])
 
-    useEffect(() => {
-        if (qnas?.length === 0) {
-            setIsQna(false)
-        }
-    }, [qnas])
-
 
     return (
         <div className="home">
             <div>
-                {isQna ? qnas?.map(qna => (
+                {qnas ? qnas?.map(qna => (
                     <QnaDetails qna={qna} key={qna._id} />
                 )) : (
                     <p>yo no problimo is added here yet</p>

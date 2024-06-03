@@ -96,7 +96,7 @@ const NewProb = () => {
                 <br />
                 <br />
 
-                <label>Answer:</label>
+                <label>Answer/Query:</label>
                 <br />
                 <textarea
                     name="answer"
@@ -112,7 +112,7 @@ const NewProb = () => {
                     checked={ispublic}
                     onChange={() => { setIsPublic(!ispublic) }}
                 />
-                <label style={{ fontSize: '16px' }}>set this question as public</label>
+                <label style={{ fontSize: '16px'}}>set this question as public</label>
                 <br />
                 <br />
 

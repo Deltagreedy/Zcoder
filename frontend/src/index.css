@@ -7,13 +7,25 @@ body {
   margin: 0px;
   padding: 0px;
   min-width: 700px;
-  background-color: #f3f3f3;
+  color: #693a1e;
+  background-color: #fefefe;
+  --primary: #dbcee8;
+  --secondary: salmon;
+  --hover: #fcf6e1;
+  --batch: #693a1e;
+  --third: #162114;
 }
 
 * {
   box-sizing: border-box;
 }
 
+input,
+textarea {
+  background-color: white;
+  color: var(--third);
+  border: 1px solid;
+}
 
 /* navbar starts here */
 .navbar-container {
@@ -28,7 +40,7 @@ body {
 
 .navbar-container a {
   text-decoration: none;
-  color: black;
+  color: var(--batch);
 }
 
 .container {
@@ -63,13 +75,13 @@ body {
 
 /* menu bar starts here */
 .menu {
-  background-color: pink;
-  color: black;
+  background-color: var(--primary);
+  color: #162114;
   margin-top: -20px;
   font-family: 'Bebas Neue', sans-serif;
   width: 80%;
   margin: auto;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 .ul-menu {
@@ -105,7 +117,7 @@ body {
   min-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid pink;
+  border: 2px solid var(--primary);
   padding-left: 40px;
   font-family: "Merriweather", serif;
 
@@ -128,7 +140,7 @@ input[type=password] {
 }
 
 .login button {
-  background-color: pink;
+  background-color: var(--primary);
   border: none;
   color: black;
   padding: 15px 32px;
@@ -141,22 +153,23 @@ input[type=password] {
 
 
 /* error */
-input.error, textarea.error {
-  border: 2px solid red;
+input.error,
+textarea.error {
+  border: 2px solid var(--secondary);
 }
 
 
 /* problems */
-.problems, .home {
+.problems,
+.home {
   width: 70%;
   margin: 0px auto 50px auto;
   padding: 20px 30px;
   font-family: "Merriweather", serif;
-  /* background-color: #04AA6D; */
 }
 
 .addd {
-  /* background-color: #04AA6D; */
+  /* background-color: #eee; */
   text-decoration: none;
   color: inherit;
   font-size: 20px;
@@ -167,15 +180,16 @@ input.error, textarea.error {
 }
 
 .addd:hover {
-  background-color: pink;
-  color: white;
+  background-color: var(--hover);
+  color: var(--third);
 }
 
 .problem {
-  border: 2px solid pink;
+  border: 2px solid var(--primary);
   padding: 20px 30px;
   margin-bottom: 20px;
   overflow: auto;
+  background-color: #fefefe;
 }
 
 
@@ -183,21 +197,23 @@ input.error, textarea.error {
   width: 70%;
   margin: 0px auto 50px auto;
   padding: 20px 30px;
-  border: 2px solid pink;
-  border-radius: 20px;
+  border: 2px solid var(--primary);
   font-family: "Merriweather", serif;
-
 }
 
 .add-prob label {
   font-size: 23px;
 }
 
-.add-prob input[type=text], input[type=number] {
+.add-prob input[type=text],
+input[type=number] {
   width: 98%;
   min-height: 40px;
 }
 
+.add-prob input[type=checkbox] {
+  accent-color: var(--primary);
+}
 
 .add-prob textarea {
   width: 98%;
@@ -205,28 +221,24 @@ input.error, textarea.error {
 }
 
 .add-prob button {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 5px;
   font-size: 20px;
   font-family: inherit;
-  background-color: inherit;
+  background-color: #eee;
   border: 1px solid black;
-  min-height: 30px;
   width: 98%;
 }
 
 .add-prob button:hover {
-  background-color: pink;
-  color: white;
+  background-color: var(--hover);
+  color: var(--third);
 }
 
 
 /* accordion */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #efefef;
+  color: var(--batch);
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -236,9 +248,10 @@ input.error, textarea.error {
   transition: 0.4s;
 }
 
-.active, .accordion:hover {
-  background-color: pink;
-  color: white ;
+.active,
+.accordion:hover {
+  background-color: var(--hover);
+  color: var(--third);
 }
 
 .panel {
@@ -246,4 +259,68 @@ input.error, textarea.error {
   background-color: white;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+
+/* comments section */
+.comment-section {
+  padding: 10px;
+}
+
+.add-comment {
+  width: 98%;
+  margin-top: 10px;
+  overflow: auto;
+  height: 40px;
+  /* background-color: aqua; */
+}
+
+.add-comment input {
+  width: 95%;
+  height: inherit;
+  padding-left: 10px;
+  border: 1px solid;
+  border-right: none;
+}
+
+.add-comment button {
+  width: 5%;
+  height: inherit;
+  background-color: #eee;
+  vertical-align: middle;
+  border: 1px solid;
+  border-left: none;
+}
+
+.other-user-comment {
+  width: 100%;
+  /* background-color: rgb(255, 244, 245); */
+  border-left: 5px solid var(--primary);
+  padding-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+}
+
+.same-user-comment {
+  width: 100%;
+  /* background-color: rgb(255, 244, 245); */
+  border-right: 5px solid var(--primary);
+  /* float: right; */
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+}
+
+.same-user-comment:hover, .other-user-comment:hover {
+  background-color: var(--hover);
+}
+
+.view-comments {
+  border: none;
+  color: rgb(64, 64, 64);
+  cursor: pointer;
+  margin-bottom: 10px;
 }
