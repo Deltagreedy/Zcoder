@@ -62,7 +62,7 @@ const NewProb = () => {
     return (
         <div className="add-prob">
             <form onSubmit={handleSubmit}>
-                <h1>add a problem</h1>
+                <h3>add a problem</h3>
 
                 <label>Title*:</label>
                 <br />

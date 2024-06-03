@@ -40,7 +40,7 @@ const Problem = () => {
     return (
         <div className="problems">
             <Link to="/problem/new" style={{ textDecoration: 'none', color: 'inherit' }}> <button className='addd'>add a problem</button></Link>
-            <h1>these are my problems:</h1>
+            <h4>these are my problems:</h4>
             <div>   
                 {
                     isQna ? qnas?.map(qna => (

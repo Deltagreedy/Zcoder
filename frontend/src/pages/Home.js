@@ -28,7 +28,6 @@ const Home = () => {
 
     return (
         <div className="home">
-            <h1>this is our home</h1>
             <div>
                 {isQna ? qnas?.map(qna => (
                     <QnaDetails qna={qna} key={qna._id} />

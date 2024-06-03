@@ -2,6 +2,8 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Accordion } from './Accordion'
 import { useQnaContext } from '../hooks/useQnaContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { FaTrash } from "react-icons/fa";
+
 
 const QnaDetails = ({ qna }) => {
     const { dispatch } = useQnaContext()
@@ -30,7 +32,7 @@ const QnaDetails = ({ qna }) => {
                         <p style={{ float: 'right' }}>{formatDistanceToNow(new Date(qna.createdAt), { addSuffix: true })}</p>
                         <p>question asked by: <u>{qna.username}</u></p>
                         <hr />
-                        <p style={{ fontSize: '30px' }}>Title: <b><u>{qna.title}</u></b></p>
+                        <p style={{ fontSize: '23px' }}>Title: <b><u>{qna.title}</u></b></p>
                         <pre style={{ fontFamily: 'inherit', overflow: 'auto' }}>Question:      {qna.question}</pre>
                         {/* <button style={{ float: 'right' }} onClick={handleClick}>delete</button> */}
                     </div>
@@ -40,8 +42,8 @@ const QnaDetails = ({ qna }) => {
             {
                 !qna.ispublic ? (
                     <div>
-                        <button style={{ float: 'right' }} onClick={handleClick}>delete</button>
-                        <p style={{ fontSize: '30px' }}><b><u>{qna.title}</u></b> \ rating: {qna.rating ? qna.rating : 'n/a'}</p>
+                        <button style={{ float: 'right' }} onClick={handleClick}><FaTrash style={{color: '#181a18'}}/></button>
+                        <p style={{ fontSize: '23px' }}><b><u>{qna.title}</u></b> \ rating: {qna.rating ? qna.rating : 'n/a'}</p>
                         <Accordion title="Question">
                             <pre style={{ fontFamily: 'inherit', overflow: 'auto' }}>{qna.question}</pre>
                         </Accordion>
