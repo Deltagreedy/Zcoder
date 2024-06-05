@@ -5,6 +5,7 @@ const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' })
 }
 
+<<<<<<< HEAD
 const getUser = async (req, res) => {
     const userId = req.user._id
     try {
@@ -33,6 +34,8 @@ const getThisUser = async (req, res) => {
     }
 }
 
+=======
+>>>>>>> origin/error
 // login user
 const loginUser = async (req, res) => {
     const {username, password} = req.body;
@@ -69,8 +72,11 @@ const signupUser = async (req, res) => {
 }
 
 module.exports = {
+<<<<<<< HEAD
     getUser,
     getThisUser,
+=======
+>>>>>>> origin/error
     signupUser,
     loginUser
 }

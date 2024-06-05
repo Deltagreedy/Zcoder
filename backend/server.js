@@ -4,9 +4,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
 const qnaRoutes = require('./routes/qna')
+<<<<<<< HEAD
 const commentsRoute = require('./routes/comments')
 const profileRoutes=require('./routes/profile')
 
+=======
+>>>>>>> origin/error
 
 // express app
 const app = express();
@@ -21,11 +24,16 @@ app.use((req, res, next) => {
 })
 
 // routes
+<<<<<<< HEAD
 app.use('/api/comments', commentsRoute);
 app.use('/api/qna', qnaRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/profile',profileRoutes);
 
+=======
+app.use('/api/qna', qnaRoutes);
+app.use('/api/user', userRoutes);
+>>>>>>> origin/error
 
 
 // connected to db

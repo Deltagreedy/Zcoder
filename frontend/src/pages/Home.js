@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react"
 
 import QnaDetails from "../components/QnaDetails"
@@ -28,6 +29,16 @@ const Home = () => {
                     <p>yo no problimo is added here yet</p>
                 )}
             </div>
+=======
+
+
+
+const Home = () => {
+
+    return (
+        <div className="home">
+            <h1>this is our home</h1>
+>>>>>>> origin/error
         </div>
     )
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useQnaContext } from '../hooks/useQnaContext'
@@ -50,6 +51,14 @@ const Problem = () => {
                     )
                 }
             </div>
+=======
+
+
+const Problem = () => {
+    return (
+        <div className="problems">
+            <h1>these are my problems</h1>
+>>>>>>> origin/error
         </div>
     )
 }

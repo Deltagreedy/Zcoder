@@ -1,5 +1,8 @@
 import { useState } from "react"
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
+=======
+>>>>>>> origin/error
 import { useSignup } from '../hooks/useSignup'
 
 const Signup = () => {
@@ -42,8 +45,14 @@ const Signup = () => {
                 value={password}
             />
             <br />
+<<<<<<< HEAD
             <button disabled={isLoading} style={{float: 'left', marginRight: '20px'}}>NEXT</button>
             <Link to="/login"><p>or log in</p></Link>
+=======
+            <button disabled={isLoading}>Sign up</button>
+            <br />
+            <br />
+>>>>>>> origin/error
             {error && <div className="error">{error}</div>}
             <br />
         </form>
